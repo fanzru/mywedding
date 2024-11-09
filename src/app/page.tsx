@@ -9,6 +9,7 @@ import { CountDown } from "./_components/countdown";
 import { CoupleInfoCard } from "./_components/CoupleInfoCard";
 import { MessageCard } from "./_components/messageCard";
 import { Reservation } from "./_components/reservation";
+import { TimelineView } from "./_components/timeline";
 
 const parisienne = Parisienne({
   weight: "400",
@@ -84,6 +85,9 @@ export default async function Home() {
           name={home.coupleInfo[0]!.name}
           description={home.coupleInfo[0]!.description}
         />
+      </section>
+      <section>
+        <TimelineView />
       </section>
       <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
         <MessageCard />
