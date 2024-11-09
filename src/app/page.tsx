@@ -37,7 +37,7 @@ export default async function Home() {
               Affan <br /> & <br /> Amelia
             </p>
             <p className="text-sm text-white">{home.locationAndDate}</p>
-            <a href="#">
+            <a href="#countdown">
               <button className="flex gap-2 rounded-full bg-[#FFD700] p-3 text-black">
                 <p className="text-sm">Open Invitation</p>
                 <svg
@@ -62,7 +62,7 @@ export default async function Home() {
           </div>
         </section>
       </BgImageContainer>
-      <section className="flex items-center justify-center">
+      <section className="flex items-center justify-center" id="countdown">
         <CountDown targetDate={home.countdown.targetDate} />
       </section>
       <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
