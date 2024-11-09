@@ -2,10 +2,15 @@ import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-    darkMode: ["class"],
-    content: ["./src/**/*.tsx"],
+  darkMode: ["class"],
+  content: ["./src/**/*.tsx"],
   theme: {
   	extend: {
+  		screens: {
+  			xs: {
+  				max: '320px'
+  			}
+  		},
   		fontFamily: {
   			sans: ["var(--font-geist-sans)", ...fontFamily.sans]
   		},
@@ -55,6 +60,28 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		keyframes: {
+  			marquee: {
+  				from: {
+  					transform: 'translateX(0)'
+  				},
+  				to: {
+  					transform: 'translateX(calc(-100% - var(--gap)))'
+  				}
+  			},
+  			'marquee-vertical': {
+  				from: {
+  					transform: 'translateY(0)'
+  				},
+  				to: {
+  					transform: 'translateY(calc(-100% - var(--gap)))'
+  				}
+  			}
+  		},
+  		animation: {
+  			marquee: 'marquee var(--duration) infinite linear',
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
   		}
   	}
   },

@@ -51,15 +51,12 @@ export function CountDown({ targetDate }: { targetDate: string }) {
 
   return (
     <div className="flex flex-col items-center gap-3 px-4 py-5">
-      <p className="text-2xl text-white">{home.countdown.header}</p>
-      <div className="flex items-center justify-between gap-3 rounded-3xl bg-white px-3 py-2">
+      <p className="text-center text-2xl text-white">{home.countdown.header}</p>
+      <div className="xs:gap-0 flex w-full items-center justify-between gap-3 rounded-3xl bg-white px-3 py-2">
         {listItem.map((data, index) => (
-          <>
-            <div
-              key={data}
-              className="flex flex-col items-center gap-1 p-[10px]"
-            >
-              <p className="min-w-[42px] text-center text-[36px] font-semibold text-[#FFD700]">
+          <React.Fragment key={data}>
+            <div className="xs:p-[5px] xs:gap-0 flex flex-col items-center gap-1 p-[10px]">
+              <p className="xs:text-[28px] max-w-[42px] text-center text-[36px] font-semibold text-[#FFD700]">
                 {data === "Days" && timeLeft.days}
                 {data === "Hours" && timeLeft.hours}
                 {data === "Minutes" && timeLeft.minutes}
@@ -68,9 +65,9 @@ export function CountDown({ targetDate }: { targetDate: string }) {
               <p className="text-sm">{data}</p>
             </div>
             {index !== listItem.length - 1 && (
-              <div className="h-[42px] w-[1px] border"></div>
+              <div className="xs:h-[32px] h-[42px] w-[1px] border"></div>
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
       <p className="text-sm text-white">{home.countdown.footer}</p>

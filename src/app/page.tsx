@@ -7,6 +7,8 @@ import { Parisienne, Afacad } from "@next/font/google";
 import { home } from "~/data/home";
 import { CountDown } from "./_components/countdown";
 import { CoupleInfoCard } from "./_components/CoupleInfoCard";
+import { MessageCard } from "./_components/messageCard";
+import { Reservation } from "./_components/reservation";
 
 const parisienne = Parisienne({
   weight: "400",
@@ -82,6 +84,23 @@ export default async function Home() {
           name={home.coupleInfo[0]!.name}
           description={home.coupleInfo[0]!.description}
         />
+      </section>
+      <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
+        <MessageCard />
+      </section>
+      <section className="flex flex-col gap-3 px-4 py-5">
+        <p className="w-full text-center text-2xl text-white">Send Gifts</p>
+        {home.sendGift.map((item, index) => (
+          <div className="" key={index}>
+            <p className="text-base font-semibold text-[#FFD700]">
+              {item.title}
+            </p>
+            <p className="text-sm font-normal text-white">{item.description}</p>
+          </div>
+        ))}
+      </section>
+      <section className="flex flex-col gap-3 px-4 py-5">
+        <Reservation />
       </section>
     </main>
   );
