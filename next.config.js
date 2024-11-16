@@ -7,7 +7,20 @@ import "./src/env.js";
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ["images.unsplash.com", "assets.aceternity.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**", // Untuk memungkinkan semua gambar dari domain ini
+      },
+      {
+        protocol: "https",
+        hostname: "assets.aceternity.com",
+        port: "",
+        pathname: "/**", // Sama seperti di atas, mengizinkan semua path
+      },
+    ],
   },
 };
 

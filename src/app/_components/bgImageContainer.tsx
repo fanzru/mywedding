@@ -9,11 +9,11 @@ export function BgImageContainer({
       <Image
         src="/images/bg-preview.webp"
         alt="Background"
-        layout="fill"
-        objectFit="cover"
+        fill
         quality={100}
-        className="opacity-70"
+        className="object-cover opacity-70"
         priority
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
       {children}
     </div>

@@ -88,7 +88,7 @@ export function Reservation() {
         </div>
         <button
           type="submit"
-          className="w-full rounded-md bg-[#FFD700] px-4 py-2 text-white shadow hover:bg-[#ffd900e0] focus:outline-none focus:ring-2 focus:ring-[#C6754D]"
+          className="w-full rounded-md bg-[#FFD700] px-4 py-2 text-black shadow hover:bg-[#ffd900e0] focus:outline-none focus:ring-2 focus:ring-[#C6754D]"
         >
           Submit
         </button>

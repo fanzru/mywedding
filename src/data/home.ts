@@ -3,7 +3,7 @@ export const home = {
   countdown: {
     header: "Counting Down to Our Big Day!",
     footer: "We can't wait to celebrate with you!",
-    targetDate: "2024-12-10T10:00:00",
+    targetDate: "2024-12-20T10:00:00",
   },
   qoutes: {
     text: "Love is composed of a single soul\n inhabiting two bodies",

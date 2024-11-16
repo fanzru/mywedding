@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { LatestPost } from "~/app/_components/post";
-import { DockDemo } from "./_components/dock";
+import { NavigationBottom } from "./_components/navigation";
 import { BgImageContainer } from "./_components/bgImageContainer";
 import { Parisienne, Afacad } from "@next/font/google";
 import { home } from "~/data/home";
@@ -10,6 +10,8 @@ import { CoupleInfoCard } from "./_components/CoupleInfoCard";
 import { MessageCard } from "./_components/messageCard";
 import { Reservation } from "./_components/reservation";
 import { TimelineView } from "./_components/timeline";
+import AudioPlayer from "./_components/audio";
+import { Footer } from "./_components/footer";
 
 const parisienne = Parisienne({
   weight: "400",
@@ -27,11 +29,12 @@ const afacad = Afacad({
 export default async function Home() {
   return (
     <main className={"relative bg-[#191919] " + afacad.className}>
-      <div className="fixed bottom-0 left-1/2 z-50 mb-4 -translate-x-1/2 transform rounded-lg">
-        <DockDemo />
-      </div>
+      <NavigationBottom />
       <BgImageContainer>
-        <section className="relative flex min-h-screen flex-col items-center justify-center">
+        <section
+          className="relative flex min-h-screen flex-col items-center justify-center"
+          id="home"
+        >
           <div className="flex flex-col items-center gap-8 text-[#FFD700]">
             <p className={"text-center text-[48px] " + parisienne.className}>
               Affan <br /> & <br /> Amelia
@@ -106,6 +109,7 @@ export default async function Home() {
       <section className="flex flex-col gap-3 px-4 py-5">
         <Reservation />
       </section>
+      <Footer />
     </main>
   );
 }

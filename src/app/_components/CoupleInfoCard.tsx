@@ -22,9 +22,9 @@ export function CoupleInfoCard({
               "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?&w=256&h=256&q=70&crop=focalpoint&fp-x=0.5&fp-y=0.3&fp-z=1&fit=crop"
             }
             alt=""
-            layout="fill"
-            objectFit="cover"
-            className="rounded-full bg-[#D9D9D9]"
+            fill
+            className="rounded-full bg-[#D9D9D9] object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <div className="flex w-full flex-col items-center gap-1">
