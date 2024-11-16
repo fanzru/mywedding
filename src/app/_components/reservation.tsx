@@ -20,14 +20,17 @@ export function Reservation() {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-3 text-white">
-        <p className="text- w-full text-center">RSVP</p>
-        <p className="w-full text-center">
+        <p className="w-full text-center text-2xl md:text-6xl">RSVP</p>
+        <p className="w-full text-center text-base md:text-xl">
           We're excited to celebrate with you! Please let us know if you'll be
           joining us.
         </p>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
+      <form
+        onSubmit={handleSubmit}
+        className="mx-auto w-full space-y-4 lg:w-[800px]"
+      >
+        <div className="w-full">
           <label
             htmlFor="name"
             className="block text-sm font-medium text-white"
@@ -43,13 +46,13 @@ export function Reservation() {
             required
           />
         </div>
-        <div>
+        <div className="w-full">
           <span className="block text-sm font-medium text-white">
             Attendance
             <span className="text-[#C6754D]"> *</span>
           </span>
           <div className="mt-1 flex items-center space-x-4">
-            <label className="inline-flex items-center gap-2 rounded-lg border p-3 text-white">
+            <label className="inline-flex w-full items-center gap-2 rounded-lg border p-3 text-white">
               <input
                 type="radio"
                 name="attendance"
@@ -59,7 +62,7 @@ export function Reservation() {
               />
               <span className="ml-2">Accept with pleasure</span>
             </label>
-            <label className="inline-flex items-center gap-2 rounded-lg border p-3 text-white">
+            <label className="inline-flex w-full items-center gap-2 rounded-lg border p-3 text-white">
               <input
                 type="radio"
                 name="attendance"
@@ -70,7 +73,7 @@ export function Reservation() {
             </label>
           </div>
         </div>
-        <div>
+        <div className="w-full">
           <label
             htmlFor="messages"
             className="block text-sm font-medium text-white"

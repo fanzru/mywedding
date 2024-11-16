@@ -150,7 +150,7 @@ export function TimelineView() {
   return (
     <div className="w-full">
       <Timeline data={data}>
-        <div className="w-full bg-[url(/images/bg-preview.webp)] bg-cover bg-center px-4 py-20 md:px-8 lg:px-10">
+        <div className="flex h-auto w-full flex-col items-center justify-center bg-[url(/images/bg-preview.webp)] bg-cover bg-center px-4 py-20 md:h-[500px] md:px-8 lg:px-10">
           <p className="w-full text-center text-xl text-white">
             A Journey of Love
           </p>

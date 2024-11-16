@@ -70,14 +70,16 @@ export default async function Home() {
       </section>
       <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
         <p
-          className="text-center text-xl text-white"
+          className="text-center text-xl text-white lg:text-5xl"
           style={{ whiteSpace: "pre-line" }}
         >
           {home.qoutes.text}
         </p>
-        <p className="text-base text-[#FFD700]">{home.qoutes.source}</p>
+        <p className="text-base text-[#FFD700] lg:text-2xl">
+          {home.qoutes.source}
+        </p>
       </section>
-      <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
+      <section className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
         <CoupleInfoCard
           image={home.coupleInfo[0]!.image}
           name={home.coupleInfo[0]!.name}
@@ -93,16 +95,23 @@ export default async function Home() {
         <TimelineView />
       </section>
       <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
+        <p className="mb-2 w-full text-center text-2xl text-white lg:text-6xl">
+          Messages of Love and Blessings
+        </p>
         <MessageCard />
       </section>
-      <section className="flex flex-col gap-3 px-4 py-5">
-        <p className="w-full text-center text-2xl text-white">Send Gifts</p>
+      <section className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5">
+        <p className="w-full text-center text-2xl text-white md:text-4xl">
+          Send Gifts
+        </p>
         {home.sendGift.map((item, index) => (
           <div className="" key={index}>
-            <p className="text-base font-semibold text-[#FFD700]">
+            <p className="text-base font-semibold text-[#FFD700] md:text-2xl">
               {item.title}
             </p>
-            <p className="text-sm font-normal text-white">{item.description}</p>
+            <p className="text-sm font-normal text-white md:text-xl">
+              {item.description}
+            </p>
           </div>
         ))}
       </section>

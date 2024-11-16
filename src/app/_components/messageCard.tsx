@@ -15,7 +15,7 @@ export function MessageCard({
   isShown,
 }: messageCardProps) {
   return (
-    <div className="flex gap-3 rounded-lg bg-white p-[10px]">
+    <div className="flex w-full max-w-full gap-3 rounded-lg bg-white p-[10px] md:max-w-[600px]">
       <Image
         src={
           image ||

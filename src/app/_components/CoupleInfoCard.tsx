@@ -13,7 +13,7 @@ export function CoupleInfoCard({
   description,
 }: CoupleInfoCardProps) {
   return (
-    <div className="flex w-full items-center justify-center rounded-lg border border-[#FFD700]/50 py-10">
+    <div className="flex w-full max-w-full items-center justify-center rounded-lg border border-[#FFD700]/50 py-10 md:max-w-[610px]">
       <div className="flex flex-col items-center justify-center gap-4 text-center">
         <div className="relative h-[100px] w-[100px] lg:h-[200px] lg:w-[200px]">
           <Image
