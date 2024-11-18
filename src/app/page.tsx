@@ -25,6 +25,7 @@ const afacad = Afacad({
   display: "swap",
 });
 import { api, HydrateClient } from "~/trpc/server";
+import { MessagesList } from "./_components/messageList";
 
 export default async function Home() {
   return (
@@ -96,10 +97,7 @@ export default async function Home() {
           <TimelineView />
         </section>
         <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
-          <p className="mb-2 w-full text-center text-2xl text-white lg:text-6xl">
-            Messages of Love and Blessings
-          </p>
-          <MessageCard />
+          <MessagesList />
         </section>
         <section className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5">
           <p className="w-full text-center text-2xl text-white md:text-4xl">

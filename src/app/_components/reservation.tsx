@@ -2,34 +2,70 @@
 
 import { FormEvent, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
 import { env } from "~/env";
+import { z } from "zod";
+import { api } from "~/trpc/react";
+
+const reservationSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  whatsapp_number: z.string().min(1, "WhatsApp number is required"),
+  attendance: z.enum(["accept_with_pleasure", "regretfully_decline"], {
+    errorMap: () => ({
+      message: "Please select an attendance option correctly",
+    }),
+  }),
+  message: z.string().min(1, "Message is required"),
+  captcha: z.string().min(1, "reCAPTCHA is required"),
+});
 
 export function Reservation() {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   const handleCaptchaChange = (token: string | null) => {
     setCaptchaToken(token);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const createRsvp = api.mywedding.submitRsvp.useMutation({
+    onSuccess: () => {
+      alert("success");
+      setLoading(false);
+    },
+    onError: (error) => {
+      alert(`Error: ${error.message}`);
+    },
+  });
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setFormError(null);
 
     const formData = new FormData(e.currentTarget);
-    const name = formData.get("name") as string;
-    const message = formData.get("messages") as string;
-    const attendance = formData.get("attendance") as string;
+    const formValues = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      whatsapp_number: formData.get("whatsapp_number") as string,
+      attendance: formData.get("attendance") as string,
+      message: formData.get("messages") as string,
+      captcha: captchaToken as string,
+    };
 
-    if (!captchaToken) {
-      alert("Please complete the reCAPTCHA!");
+    const parsed = reservationSchema.safeParse(formValues);
+
+    if (!parsed.success) {
+      setFormError("Please fill in all required fields correctly.");
+      console.log(parsed.error.format());
       return;
     }
 
-    alert(
-      `Form submitted!\nName: ${name}\nMessage: ${message}\nAttendance: ${attendance}\nreCAPTCHA Token: ${captchaToken}`,
-    );
+    setLoading(true);
 
-    e.currentTarget.reset();
-    setCaptchaToken(null);
+    console.log(formValues);
+
+    createRsvp.mutate(formValues);
   };
 
   return (
@@ -41,6 +77,11 @@ export function Reservation() {
           joining us.
         </p>
       </div>
+
+      {formError && (
+        <div className="mb-4 text-center text-red-500">{formError}</div>
+      )}
+
       <form
         onSubmit={handleSubmit}
         className="mx-auto w-full space-y-4 lg:w-[800px]"
@@ -61,6 +102,41 @@ export function Reservation() {
             required
           />
         </div>
+
+        <div className="w-full">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-white"
+          >
+            Email
+            <span className="text-[#C6754D]">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-[#C6754D] focus:outline-none focus:ring-[#C6754D]"
+            required
+          />
+        </div>
+
+        <div className="w-full">
+          <label
+            htmlFor="whatsapp_number"
+            className="block text-sm font-medium text-white"
+          >
+            WhatsApp Number
+            <span className="text-[#C6754D]">*</span>
+          </label>
+          <input
+            type="tel"
+            id="whatsapp_number"
+            name="whatsapp_number"
+            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-[#C6754D] focus:outline-none focus:ring-[#C6754D]"
+            required
+          />
+        </div>
+
         <div className="w-full">
           <span className="block text-sm font-medium text-white">
             Attendance
@@ -71,7 +147,7 @@ export function Reservation() {
               <input
                 type="radio"
                 name="attendance"
-                value="Accept with pleasure"
+                value="accept_with_pleasure"
                 className="form-radio border-whtie h-5 w-5 appearance-none rounded-sm border-2 bg-white checked:bg-[#C6754D] focus:ring-[#C6754D]"
                 required
               />
@@ -81,13 +157,14 @@ export function Reservation() {
               <input
                 type="radio"
                 name="attendance"
-                value="Regretfully Decline"
+                value="regretfully_decline"
                 className="form-radio border-whtie h-5 w-5 appearance-none rounded-sm border-2 bg-white checked:bg-[#C6754D] focus:ring-[#C6754D]"
               />
               <span className="ml-2">Regretfully Decline</span>
             </label>
           </div>
         </div>
+
         <div className="w-full">
           <label
             htmlFor="messages"
@@ -107,15 +184,17 @@ export function Reservation() {
 
         <div className="w-full">
           <ReCAPTCHA
-            sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+            sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
             onChange={handleCaptchaChange}
           />
         </div>
+
         <button
           type="submit"
           className="w-full rounded-md bg-[#FFD700] px-4 py-2 text-black shadow hover:bg-[#ffd900e0] focus:outline-none focus:ring-2 focus:ring-[#C6754D]"
+          disabled={loading}
         >
-          Submit
+          {loading ? "Loading..." : "Submit"}
         </button>
       </form>
     </div>
