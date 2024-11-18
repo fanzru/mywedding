@@ -1,8 +1,16 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import { env } from "~/env";
 
 export function Reservation() {
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -11,12 +19,19 @@ export function Reservation() {
     const message = formData.get("messages") as string;
     const attendance = formData.get("attendance") as string;
 
+    if (!captchaToken) {
+      alert("Please complete the reCAPTCHA!");
+      return;
+    }
+
     alert(
-      `Form submitted!\nName: ${name}\nMessage: ${message}\nAttendance: ${attendance}`,
+      `Form submitted!\nName: ${name}\nMessage: ${message}\nAttendance: ${attendance}\nreCAPTCHA Token: ${captchaToken}`,
     );
 
     e.currentTarget.reset();
+    setCaptchaToken(null);
   };
+
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-3 text-white">
@@ -87,6 +102,13 @@ export function Reservation() {
             rows={3}
             className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-[#C6754D] focus:outline-none focus:ring-[#C6754D]"
             required
+          />
+        </div>
+
+        <div className="w-full">
+          <ReCAPTCHA
+            sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+            onChange={handleCaptchaChange}
           />
         </div>
         <button
