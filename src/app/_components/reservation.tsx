@@ -193,7 +193,7 @@ export function Reservation() {
         </button>
          <div className="flex w-full items-center justify-center">
           <ReCAPTCHA
-            sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6Lcx2YEqAAAAAI2VwtW_M4rVamKdhzV96MB2nFiD"}
             onChange={handleCaptchaChange}
           />
         </div>
