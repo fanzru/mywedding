@@ -26,6 +26,8 @@ const afacad = Afacad({
 });
 import { api, HydrateClient } from "~/trpc/server";
 import { MessagesList } from "./_components/messageList";
+import SendGifts from "./_components/sendGifts";
+import ThankYouQRCode from "./_components/thankYou";
 
 export default async function Home() {
   return (
@@ -34,11 +36,12 @@ export default async function Home() {
         <NavigationBottom />
         <BgImageContainer>
           <section
-            className="relative flex min-h-screen flex-col items-center justify-center"
+            className="relative flex min-h-screen flex-col items-center justify-center pb-[100px]"
             id="home"
           >
-            <div className="flex flex-col items-center gap-8 text-[#FFD700]">
-              <p className={"text-center text-[48px] " + parisienne.className}>
+            <div className="flex flex-col items-center gap-4 text-[#FFD700]">
+            <p className="text-sm text-white">You're Invited to Celebrate the Wedding of</p>
+              <p className={"text-center text-[48px] "}>
                 Affan <br /> & <br /> Amelia
               </p>
               <p className="text-sm text-white">{home.locationAndDate}</p>
@@ -70,6 +73,19 @@ export default async function Home() {
         <section className="flex items-center justify-center" id="countdown">
           <CountDown targetDate={home.countdown.targetDate} />
         </section>
+        
+        <section className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
+          <CoupleInfoCard
+            image={home.coupleInfo[0]!.image}
+            name={home.coupleInfo[0]!.name}
+            description={home.coupleInfo[0]!.description}
+          />
+          <CoupleInfoCard
+            image={home.coupleInfo[1]!.image}
+            name={home.coupleInfo[1]!.name}
+            description={home.coupleInfo[1]!.description}
+          />
+        </section>
         <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
           <p
             className="text-center text-xl text-white lg:text-5xl"
@@ -81,18 +97,6 @@ export default async function Home() {
             {home.qoutes.source}
           </p>
         </section>
-        <section className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
-          <CoupleInfoCard
-            image={home.coupleInfo[0]!.image}
-            name={home.coupleInfo[0]!.name}
-            description={home.coupleInfo[0]!.description}
-          />
-          <CoupleInfoCard
-            image={home.coupleInfo[0]!.image}
-            name={home.coupleInfo[0]!.name}
-            description={home.coupleInfo[0]!.description}
-          />
-        </section>
         <section>
           <TimelineView />
         </section>
@@ -103,19 +107,14 @@ export default async function Home() {
           <p className="w-full text-center text-2xl text-white md:text-4xl">
             Send Gifts
           </p>
-          {home.sendGift.map((item, index) => (
-            <div className="" key={index}>
-              <p className="text-base font-semibold text-[#FFD700] md:text-2xl">
-                {item.title}
-              </p>
-              <p className="text-sm font-normal text-white md:text-xl">
-                {item.description}
-              </p>
-            </div>
-          ))}
+          <SendGifts gifts={home.sendGift}/>
         </section>
         <section className="flex flex-col gap-3 px-4 py-5">
           <Reservation />
+        </section>
+
+        <section className="flex flex-col gap-3 px-4 py-5">
+          <ThankYouQRCode link="https://maps.app.goo.gl/XG5s4LfkUT5ay4DNA" />
         </section>
         <Footer />
       </main>

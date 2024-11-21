@@ -182,12 +182,7 @@ export function Reservation() {
           />
         </div>
 
-        <div className="w-full">
-          <ReCAPTCHA
-            sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-            onChange={handleCaptchaChange}
-          />
-        </div>
+
 
         <button
           type="submit"
@@ -196,6 +191,12 @@ export function Reservation() {
         >
           {loading ? "Loading..." : "Submit"}
         </button>
+         <div className="flex w-full items-center justify-center">
+          <ReCAPTCHA
+            sitekey={env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            onChange={handleCaptchaChange}
+          />
+        </div>
       </form>
     </div>
   );
