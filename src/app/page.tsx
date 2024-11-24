@@ -1,6 +1,6 @@
 import { NavigationBottom } from "./_components/navigation";
 import { BgImageContainer } from "./_components/bgImageContainer";
-import { Parisienne, Afacad } from "@next/font/google";
+import { Parisienne, Afacad } from "next/font/google";
 import { home } from "~/data/home";
 import { CountDown } from "./_components/countdown";
 import { CoupleInfoCard } from "./_components/CoupleInfoCard";
@@ -67,6 +67,7 @@ export default async function Home() {
             </div>
           </section>
         </BgImageContainer>
+
         <section id="countdown">
           <div className="flex items-center justify-center">
             <CountDown targetDate={home.countdown.targetDate} />
