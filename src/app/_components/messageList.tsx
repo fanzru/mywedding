@@ -33,7 +33,7 @@ export function MessagesList() {
       <p className="mb-2 w-full text-center text-2xl text-white lg:text-6xl">
         Messages of Love and Blessings
       </p>
-      <div className="flex w-full flex-col items-center justify-center overflow-hidden rounded-lg md:max-w-[800px]">
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg md:max-w-[800px]">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((message: Message, index: number) => (
             <MessageCard
@@ -52,8 +52,8 @@ export function MessagesList() {
             />
           ))}
         </Marquee>
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div>
+        {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white dark:from-background"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-background"></div> */}
       </div>
 
       {/* {data.data.map((message: Message, index: number) => (
