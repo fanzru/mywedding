@@ -40,8 +40,10 @@ export default async function Home() {
             id="home"
           >
             <div className="flex flex-col items-center gap-4 text-[#FFD700]">
-            <p className="text-sm text-white">You're Invited to Celebrate the Wedding of</p>
-              <p className={"text-center text-[48px] "}>
+              <p className="text-sm text-white">
+                You're Invited to Celebrate the Wedding of
+              </p>
+              <p className={"text-center text-[48px]"}>
                 Affan <br /> & <br /> Amelia
               </p>
               <p className="text-sm text-white">{home.locationAndDate}</p>
@@ -70,45 +72,50 @@ export default async function Home() {
             </div>
           </section>
         </BgImageContainer>
-        <section className="flex items-center justify-center" id="countdown">
-          <CountDown targetDate={home.countdown.targetDate} />
+        <section id="countdown">
+          <div className="flex items-center justify-center">
+            <CountDown targetDate={home.countdown.targetDate} />
+          </div>
+          <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
+            <p
+              className="text-center text-xl text-white lg:text-5xl"
+              style={{ whiteSpace: "pre-line" }}
+            >
+              {home.qoutes.text}
+            </p>
+            <p className="text-base text-[#FFD700] lg:text-2xl">
+              {home.qoutes.source}
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
+            <CoupleInfoCard
+              image={home.coupleInfo[0]!.image}
+              name={home.coupleInfo[0]!.name}
+              description={home.coupleInfo[0]!.description}
+            />
+            <CoupleInfoCard
+              image={home.coupleInfo[1]!.image}
+              name={home.coupleInfo[1]!.name}
+              description={home.coupleInfo[1]!.description}
+            />
+          </div>
         </section>
-        
-        <section className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
-          <CoupleInfoCard
-            image={home.coupleInfo[0]!.image}
-            name={home.coupleInfo[0]!.name}
-            description={home.coupleInfo[0]!.description}
-          />
-          <CoupleInfoCard
-            image={home.coupleInfo[1]!.image}
-            name={home.coupleInfo[1]!.name}
-            description={home.coupleInfo[1]!.description}
-          />
-        </section>
-        <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
-          <p
-            className="text-center text-xl text-white lg:text-5xl"
-            style={{ whiteSpace: "pre-line" }}
-          >
-            {home.qoutes.text}
-          </p>
-          <p className="text-base text-[#FFD700] lg:text-2xl">
-            {home.qoutes.source}
-          </p>
-        </section>
-        <section>
+
+        <section id="ourstory">
           <TimelineView />
         </section>
-        <section className="flex flex-col items-center justify-center gap-3 px-4 py-5">
-          <MessagesList />
+        <section id="message">
+          <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
+            <MessagesList />
+          </div>
+          <div className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5">
+            <p className="w-full text-center text-2xl text-white md:text-4xl">
+              Send Gifts
+            </p>
+            <SendGifts gifts={home.sendGift} />
+          </div>
         </section>
-        <section className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5">
-          <p className="w-full text-center text-2xl text-white md:text-4xl">
-            Send Gifts
-          </p>
-          <SendGifts gifts={home.sendGift}/>
-        </section>
+
         <section className="flex flex-col gap-3 px-4 py-5">
           <Reservation />
         </section>

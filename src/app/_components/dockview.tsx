@@ -44,7 +44,7 @@ export function DockView({
         <DockIcon>
           <Icons.home
             size={32}
-            className={cn("text-white", {
+            className={cn("text-white/40", {
               "text-[#FFD700]": activeSection === "home",
             })}
           />
@@ -53,16 +53,31 @@ export function DockView({
           <div className="h-[60%] w-[1px] border border-white/10"></div>
         </div>
         <DockIcon>
-          <Icons.heart size={32} className="text-white/40" />
+          <Icons.heart
+            size={32}
+            className={cn("text-white/40", {
+              "text-[#FFD700]": activeSection === "countdown",
+            })}
+          />
         </DockIcon>
         <DockIcon>
-          <Icons.history size={32} className="text-white/40" />
+          <Icons.history
+            size={32}
+            className={cn("text-white/40", {
+              "text-[#FFD700]": activeSection === "ourstory",
+            })}
+          />
         </DockIcon>
-        <DockIcon>
+        {/* <DockIcon>
           <Icons.book size={32} className="text-white/40" />
-        </DockIcon>
+        </DockIcon> */}
         <DockIcon>
-          <Icons.message size={32} className="text-white/40" />
+          <Icons.message
+            size={32}
+            className={cn("text-white/40", {
+              "text-[#FFD700]": activeSection === "message",
+            })}
+          />
         </DockIcon>
         <div className="flex h-full items-center justify-center">
           <div className="h-[60%] w-[1px] border border-white/10"></div>
@@ -93,10 +108,22 @@ const Icons = {
       <AiOutlineHome {...props} />
     </a>
   ),
-  heart: (props: any) => <LuHeart {...props} />,
-  history: (props: any) => <MdHistoryEdu {...props} />,
+  heart: (props: any) => (
+    <a href="#countdown">
+      <LuHeart {...props} />{" "}
+    </a>
+  ),
+  history: (props: any) => (
+    <a href="#ourstory">
+      <MdHistoryEdu {...props} />
+    </a>
+  ),
   book: (props: any) => <MdOutlineBook {...props} />,
-  message: (props: any) => <TbMessage {...props} />,
+  message: (props: any) => (
+    <a href="#message">
+      <TbMessage {...props} />
+    </a>
+  ),
   volumeOff: (props: any) => <HiVolumeOff {...props} />,
   VolumeOn: (props: any) => <HiVolumeUp {...props} />,
 
