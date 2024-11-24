@@ -1,17 +1,16 @@
-import Link from "next/link";
-
-import { LatestPost } from "~/app/_components/post";
 import { NavigationBottom } from "./_components/navigation";
 import { BgImageContainer } from "./_components/bgImageContainer";
 import { Parisienne, Afacad } from "@next/font/google";
 import { home } from "~/data/home";
 import { CountDown } from "./_components/countdown";
 import { CoupleInfoCard } from "./_components/CoupleInfoCard";
-import { MessageCard } from "./_components/messageCard";
 import { Reservation } from "./_components/reservation";
 import { TimelineView } from "./_components/timeline";
-import AudioPlayer from "./_components/audio";
 import { Footer } from "./_components/footer";
+import { api, HydrateClient } from "~/trpc/server";
+import { MessagesList } from "./_components/messageList";
+import SendGifts from "./_components/sendGifts";
+import ThankYouQRCode from "./_components/thankYou";
 
 const parisienne = Parisienne({
   weight: "400",
@@ -24,10 +23,6 @@ const afacad = Afacad({
   subsets: ["latin"],
   display: "swap",
 });
-import { api, HydrateClient } from "~/trpc/server";
-import { MessagesList } from "./_components/messageList";
-import SendGifts from "./_components/sendGifts";
-import ThankYouQRCode from "./_components/thankYou";
 
 export default async function Home() {
   return (

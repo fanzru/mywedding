@@ -11,7 +11,6 @@ interface Message {
 export function MessagesList() {
   // Fetch data using TRPC
   const { data, isLoading, isError } = api.mywedding.getMessages.useQuery();
-  console.log(data);
 
   if (isLoading) {
     return <p className="text-center text-white">Loading messages...</p>;

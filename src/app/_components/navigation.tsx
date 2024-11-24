@@ -6,15 +6,22 @@ import { HiVolumeOff, HiVolumeUp } from "react-icons/hi";
 import { cn } from "~/lib/utils";
 import { DockView } from "./dockview";
 import AudioPlayer from "./audio";
+import { OpeningSection } from "./openingSection";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export function NavigationBottom() {
-  const [isMute, setIsMute] = useState(false);
+  const [isMute, setIsMute] = useState(true);
 
   return (
     <>
+      <OpeningSection
+        setIsMute={() => {
+          setIsMute(false);
+        }}
+      />
       <AudioPlayer isMute={isMute} />
+
       {/* 
       <div className="fixed bottom-0 left-1/2 z-50 mb-4 -translate-x-1/2 transform rounded-lg md:left-auto md:right-0 md:mr-4 md:translate-x-0">
       
