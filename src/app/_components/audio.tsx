@@ -22,7 +22,7 @@ const AudioPlayer = ({ isMute }: { isMute: boolean }) => {
 
   return (
     <audio ref={audioRef} loop muted autoPlay>
-      <source src="/audio/Violet Snow (Original Ver.).mp3" type="audio/mpeg" />
+      <source src="/audio/audio.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
   );
