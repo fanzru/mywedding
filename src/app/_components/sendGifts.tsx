@@ -15,7 +15,7 @@ export default function SendGifts({ gifts }: SendGiftsProps) {
     <div>
       {gifts.map((item: SendGift, index: number) => (
         <div className="mb-4" key={index}>
-          <div className="flex items-center">
+          <div className="flex items-center md:justify-center">
             <p className="text-base font-semibold text-[#FFD700] md:text-2xl">
               {item.title}
             </p>
