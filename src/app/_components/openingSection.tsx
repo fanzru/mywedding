@@ -44,37 +44,29 @@ function Content({ handleButtonClick }: { handleButtonClick: () => void }) {
   const to = searchParams.get("to");
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-between">
-      <div className="mt-[100px] flex flex-col items-center justify-center">
-        <p
-          className={
-            "text-center text-[36px] font-semibold text-[#FFD700] lg:text-[36px]"
-          }
-        >
+    <div className="flex flex-col h-screen w-screen items-center justify-between px-2">
+      
+      <div className="flex flex-col items-center justify-center mt-[100px]">
+        <p className={"text-center text-[36px] font-semibold text-[#FFD700] lg:text-[36px]"}>
           THE WEDDING OF
         </p>
-        <p
-          className={
-            "mb-[100px] text-center text-[32px] text-[#FFD700] lg:text-8xl"
-          }
-        >
+        <p className={"mb-[100px] text-center text-[32px] text-[#FFD700] lg:text-[62px]"}>
           Affan & Amelia
         </p>
       </div>
-
-      <div className="mb-[150px] flex flex-col items-center justify-center">
-        <p className="p-3 text-center text-lg text-white lg:p-6 lg:text-4xl">
+      
+      <div className="flex flex-col items-center justify-center  mb-[150px]">
+      <p className="p-3 text-center text-[18px] text-white lg:p-6 lg:text-[18px]">
           Yth. Bapak/Ibu/Saudara/i
         </p>
         {(to || "Yang Sehat Selalu") && (
-          <p className="text-center text-2xl capitalize text-[#FFD700] lg:text-7xl">
+          <p className="text-center text-[18px] capitalize text-[#FFD700] lg:text-[24px]">
             {to || "Yang Sehat Selalu"}
           </p>
         )}
 
-        <p className="mt-4 text-center text-lg text-white lg:text-4xl">
-          Tanpa mengurangi rasa hormat, kami mengundang anda untuk menghadiri
-          acara pernikahan kami.
+        <p className="text-center text-[18px] text-white lg:text-4xl mt-4 lg:text-[18px]">
+          Tanpa mengurangi rasa hormat, kami mengundang anda untuk menghadiri acara pernikahan kami.
         </p>
 
         <button
