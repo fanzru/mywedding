@@ -16,20 +16,30 @@ export function MessageCard({
 }: messageCardProps) {
   return (
     <div className="flex w-full min-w-40 max-w-full gap-3 rounded-lg bg-white p-[10px] md:max-w-[600px]">
-      <Image
+      {/* <Image
         src={
           image ||
           "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?&w=256&h=256&q=70&crop=focalpoint&fp-x=0.5&fp-y=0.3&fp-z=1&fit=crop"
         }
-        width={60}
-        height={60}
+        width={30}
+        height={30}
         alt="avatar"
-        className="h-[60px] w-[60px] rounded-full"
+        className="h-[40px] w-[40px] rounded-full"
       />
+      #FFD700 */}
+       <div
+          style={{ backgroundColor: "#FFD700" }}
+          className="h-[40px] w-[40px] rounded-full"
+        ></div>
       <div className="flex flex-col gap-1">
-        <p className="text-base font-semibold text-[#191919]">
-          {title || "Lorem ipsum dolor sit amet."}
-        </p>
+        <div>
+          <p className="text-sm text-base font-semibold text-[#191919]">
+            {title || "Anonymous"}
+          </p>
+          <p className="text-sm text-base text-[#808080]">
+          {"@" + (title ? title.replace(/\s+/g, "").toLowerCase() : "@anonymous")}
+          </p>
+        </div>
         <p className="text-sm text-[#808080]">
           {description ||
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, alias!"}
