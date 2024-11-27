@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const metaImageUrl = "/images/meta/meta.png"; // Path ke meta image
+const metaImageUrl = "https://affanamelia.com/images/meta/img.webp"; // Path ke meta image
 
 export default function RootLayout({
   children,
@@ -23,7 +23,7 @@ export default function RootLayout({
         {/* Open Graph metadata */}
         <meta property="og:title" content="Affan & Amelia | Wedding Invitation" />
         <meta property="og:description" content={metadata.description || "Default Description"} />
-        <meta property="og:image" content={metaImageUrl || "/images/meta/meta.png"} />
+        <meta property="og:image" content={metaImageUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://affanamelia.com" /> {/* Ganti dengan URL Anda */}
         {/* Favicon */}
@@ -32,7 +32,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Affan & Amelia | Wedding Invitation" />
         <meta name="twitter:description" content={metadata.description || "Default Description"} />
-        <meta name="twitter:image" content={metaImageUrl || "/images/meta/meta.png"} />
+        <meta name="twitter:image" content={metaImageUrl} />
       </Head>
       <body className="bg-[#191919]">
         <TRPCReactProvider>{children}</TRPCReactProvider>
