@@ -1,8 +1,8 @@
 export const home = {
   locationAndDate: "Kebumen, 20 December 2024",
   countdown: {
-    header: "Counting Down to Our Big Day!",
-    footer: "We can't wait to celebrate with you!",
+    header: "Akan dilaksanakan dalam",
+    footer: "Semoga kita selalu dalam lindungan Allah SWT",
     targetDate: "2024-12-20T10:00:00",
   },
   qoutes: {
@@ -13,12 +13,12 @@ export const home = {
     {
       image: "/images/profile-affan.jpg",
       name: "Ananda Affan Fattahila",
-      description: "The son of Andy Cluish and Ratnaningsih",
+      description: "Putra dari Bapak Andy Cluish dan Ibu Ratnaningsih",
     },
     {
       image: "/images/profile-amel.jpg",
       name: "Amelia Rifka Yunita",
-      description: "The son of Kasidi and Umu Nurkhasanah",
+      description: "Putri dari Bapak Kasidi dan Ibu Umu Nurkhasanah",
     },
   ],
   sendGift: [

@@ -33,7 +33,7 @@ export function MessagesList() {
       <p className="mb-2 w-full text-center text-2xl text-white lg:text-6xl">
         Messages of Love and Blessings
       </p>
-      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg md:max-w-[800px]">
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg md:max-w-[900px]">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((message: Message, index: number) => (
             <MessageCard

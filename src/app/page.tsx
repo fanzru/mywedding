@@ -11,6 +11,8 @@ import { api, HydrateClient } from "~/trpc/server";
 import { MessagesList } from "./_components/messageList";
 import SendGifts from "./_components/sendGifts";
 import ThankYouQRCode from "./_components/thankYou";
+import { Wrapper } from "./_components/wrapper";
+import EventDetails from "./_components/eventDetail";
 
 const parisienne = Parisienne({
   weight: "400",
@@ -68,43 +70,96 @@ export default async function Home() {
           </section>
         </BgImageContainer>
 
-        <section id="countdown">
-          <div className="flex items-center justify-center">
-            <CountDown targetDate={home.countdown.targetDate} />
-          </div>
-          <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
-            <p
-              className="text-center text-xl text-white lg:text-5xl"
-              style={{ whiteSpace: "pre-line" }}
-            >
-              {home.qoutes.text}
+        <section id="countdown" >
+          <Wrapper className="">
+            <div className="flex flex-col items-center justify-center px-4 py-5 ">
+              <p className="text-[22px] text-[#FFD700] lg:text-3xl">
+                {"Pasangan"}
+              </p>
+              <p className="text-[42px] text-[#FFD700] lg:text-3xl">
+                {"Mempelai"}
+              </p>
+              <p
+                className="text-center text-[18px] text-white lg:text-xl"
+                style={{ whiteSpace: "pre-line" }}
+              >
+                {"Dengan segala puji bagi Allah yang telah menciptakan makhluk-Nya berpasang-pasangan, Ya Allah izinkanlah kami merangkaikan cinta yang Engkau berikan dalam ikatan pernikahan."}
+              </p>
+          
+            </div>
+
+       
+            
+          </Wrapper>
+          
+        </section>
+
+        <section id="placeandtime">
+          <div className="flex w-full flex-col items-center justify-center bg-[#FFD700] bg-cover bg-center px-4 py-20 h-[200px] md:px-8 lg:px-10">
+            <p className="w-full text-center text-lg md:text-[20px] text-black ">
+              Detail
             </p>
-            <p className="text-base text-[#FFD700] lg:text-2xl">
-              {home.qoutes.source}
-            </p>
+            <h1 className="w-full text-center font-semibold text-black text-[42px] md:text-[72px]  h-auto">
+              Waktu & Tempat
+            </h1>
           </div>
-          <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
-            <CoupleInfoCard
-              image={home.coupleInfo[0]!.image}
-              name={home.coupleInfo[0]!.name}
-              description={home.coupleInfo[0]!.description}
-            />
-            <CoupleInfoCard
-              image={home.coupleInfo[1]!.image}
-              name={home.coupleInfo[1]!.name}
-              description={home.coupleInfo[1]!.description}
-            />
-          </div>
+        
+        </section>
+
+        <section id="placeandtimedetail" >
+          <Wrapper className="">
+            <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 ">
+              <p className="text-base text-[#FFD700] lg:text-3xl">
+                {"Simpan Tanggalnya"}
+              </p>
+          
+              <p className="text-white text-[#FFD700] lg:text-5xl ">
+                {"Jumat, 20 Desember 2024"}
+              </p>
+            </div>
+            <div className="flex items-center justify-center">
+              
+              <CountDown targetDate={home.countdown.targetDate} />
+            </div>
+
+            <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
+              <CoupleInfoCard
+                image={home.coupleInfo[0]!.image}
+                name={home.coupleInfo[0]!.name}
+                description={home.coupleInfo[0]!.description}
+              />
+              <CoupleInfoCard
+                image={home.coupleInfo[1]!.image}
+                name={home.coupleInfo[1]!.name}
+                description={home.coupleInfo[1]!.description}
+              />
+            </div>
+
+
+            <EventDetails />
+
+            <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
+              <p
+                className="text-center text-xl text-white lg:text-5xl"
+                style={{ whiteSpace: "pre-line" }}
+              >
+                {home.qoutes.text}
+              </p>
+              <p className="text-base text-[#FFD700] lg:text-2xl">
+                {home.qoutes.source}
+              </p>
+            </div>
+          </Wrapper>
         </section>
 
         <section id="ourstory">
           <TimelineView />
         </section>
         <section id="message">
-          <div className="flex flex-col items-center justify-center gap-3">
+          <Wrapper >
             <MessagesList />
-          </div>
-          <div className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5">
+          </Wrapper>
+          <div className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5 md:text-center">
             <p className="w-full text-center text-2xl text-white md:text-4xl">
               Send Gifts
             </p>
