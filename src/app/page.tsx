@@ -37,8 +37,8 @@ export default async function Home() {
             id="home"
           >
             <div className="flex flex-col items-center gap-4 text-[#FFD700]">
-              <p className="text-sm text-white">
-                You're Invited to Celebrate the Wedding of
+              <p className="text-sm text-white md:text-[28px]">
+                Anda Diundang untuk Merayakan Pernikahan dari
               </p>
               <p className={"text-center text-[48px]"}>
                 Affan <br /> & <br /> Amelia
@@ -46,7 +46,7 @@ export default async function Home() {
               <p className="text-sm text-white">{home.locationAndDate}</p>
               <a href="#countdown">
                 <button className="flex gap-2 rounded-full bg-[#FFD700] p-3 text-black">
-                  <p className="text-sm">Open Invitation</p>
+                  <p className="text-sm">Buka Undangan</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={20}
@@ -89,9 +89,6 @@ export default async function Home() {
               </p>
             </div>
           </Wrapper>
-        </section>
-
-        <section id="placeandtime">
           <div className="flex h-[200px] w-full flex-col items-center justify-center bg-[#FFD700] bg-cover bg-center px-4 py-20 md:px-8 lg:px-10">
             <p className="w-full text-center text-lg text-black md:text-[20px]">
               Detail
@@ -100,9 +97,6 @@ export default async function Home() {
               Waktu & Tempat
             </h1>
           </div>
-        </section>
-
-        <section id="placeandtimedetail">
           <Wrapper className="">
             <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
               <p className="text-base text-[#FFD700] lg:text-3xl">
@@ -145,7 +139,6 @@ export default async function Home() {
             </div>
           </Wrapper>
         </section>
-
         <section id="ourstory">
           <TimelineView />
         </section>

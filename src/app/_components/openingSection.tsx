@@ -46,21 +46,23 @@ function Content({ handleButtonClick }: { handleButtonClick: () => void }) {
   return (
     <div className="flex h-screen w-screen items-center justify-center">
       <div className="flex flex-col items-center justify-center">
-        <p className={"text-center text-xl text-[#FFD700] md:text-3xl"}>
+        <p className={"text-center text-2xl text-[#FFD700] lg:text-7xl"}>
           Affan & Amelia
         </p>
-        <p className="py-3 text-center text-lg text-white md:text-2xl">
-          Welcome! You're Invited to Celebrate Love with Us.
+        <p className="p-3 text-center text-lg text-white lg:p-6 lg:text-4xl">
+          Selamat Datang! Anda Diundang untuk Merayakan Cinta Bersama Kami.
         </p>
         {to && (
-          <p className="text-center text-7xl capitalize text-[#FFD700]">{to}</p>
+          <p className="text-center text-2xl capitalize text-[#FFD700] lg:text-7xl">
+            {to}
+          </p>
         )}
 
         <button
-          className="my-3 flex gap-2 rounded-full bg-[#FFD700] p-3 text-black"
+          className="my-3 flex gap-2 rounded-full bg-[#FFD700] p-3 text-black md:my-8"
           onClick={handleButtonClick}
         >
-          <p className="text-sm">Open Invitation</p>
+          <p className="text-sm">Buka Undangan</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={20}
