@@ -27,17 +27,18 @@ export function MessageCard({
         className="h-[40px] w-[40px] rounded-full"
       />
       #FFD700 */}
-       <div
-          style={{ backgroundColor: "#FFD700" }}
-          className="h-[40px] w-[40px] rounded-full"
-        ></div>
+      <div
+        style={{ backgroundColor: "#FFD700" }}
+        className="h-[40px] w-[40px] rounded-full"
+      ></div>
       <div className="flex flex-col gap-1">
         <div>
-          <p className="text-sm text-base font-semibold text-[#191919]">
+          <p className="text-base font-semibold text-[#191919]">
             {title || "Anonymous"}
           </p>
-          <p className="text-sm text-base text-[#808080]">
-          {"@" + (title ? title.replace(/\s+/g, "").toLowerCase() : "@anonymous")}
+          <p className="text-base text-[#808080]">
+            {"@" +
+              (title ? title.replace(/\s+/g, "").toLowerCase() : "@anonymous")}
           </p>
         </div>
         <p className="text-sm text-[#808080]">
