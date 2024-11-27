@@ -33,9 +33,9 @@ export function EventDetailCard({
         </svg>
       </div>
       <div className="flex flex-col items-center text-center md:items-start md:text-left">
-        <h3 className="text-xl font-semibold text-[#1A1A1A]">{title}</h3>
-        <p className="mt-2 text-sm text-gray-700">{time}</p>
-        <p className="mt-1 text-sm text-gray-700">{location}</p>
+        <h3 className="text-[24px] font-semibold text-[#1A1A1A] lg:text-[28px]">{title}</h3>
+        <p className="mt-2 text-[16px] text-gray-700 lg:text-[18px]">{time}</p>
+        <p className="mt-1 text-[16px] text-gray-700 lg:text-[18px]">{location}</p>
         {mapLink && (
           <a
             href={mapLink}
@@ -58,15 +58,15 @@ export default function EventDetails() {
       <div className="w-full flex flex-col gap-8  md:flex-row md:justify-between">
         <EventDetailCard
           title="Akad Nikah"
-          time="Jumat, 20 Desember 2024 - 10:00 WIB"
-          location="Masjid Al-Ikhlas, Jakarta Selatan"
-          mapLink="https://goo.gl/maps/example-akad"
+          time="Jumat, 20 Desember 2024 - 08:00 WIB s.d. Selesai"
+          location="RT 02 RW 02 Dukuh Sasak, Desa Bendungan, Kec. Kuwarasan, Kab. Kebumen"
+          mapLink="https://maps.app.goo.gl/XG5s4LfkUT5ay4DNA"
         />
         <EventDetailCard
           title="Resepsi"
-          time="Jumat, 20 Desember 2024 - 18:00 WIB"
-          location="Gedung Graha Cemerlang, Jakarta Pusat"
-          mapLink="https://goo.gl/maps/example-resepsi"
+          time="Jumat, 20 Desember 2024 - 09:00 WIB s.d. Selesai"
+          location="RT 02 RW 02 Dukuh Sasak, Desa Bendungan, Kec. Kuwarasan, Kab. Kebumen"
+          mapLink="https://maps.app.goo.gl/XG5s4LfkUT5ay4DNA"
         />
       </div>
     </Wrapper>
