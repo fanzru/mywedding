@@ -101,7 +101,7 @@ export default async function Home() {
           <TimelineView />
         </section>
         <section id="message">
-          <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
+          <div className="flex flex-col items-center justify-center gap-3">
             <MessagesList />
           </div>
           <div className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5">
