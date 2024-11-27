@@ -20,6 +20,12 @@ const config = {
         port: "",
         pathname: "/**", // Sama seperti di atas, mengizinkan semua path
       },
+      {
+        protocol: "https",
+        hostname: "avatar.vercel.sh",
+        port: "",
+        pathname: "/**", // Untuk memungkinkan semua gambar dari domain ini
+      },
     ],
   },
 };

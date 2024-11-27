@@ -70,9 +70,9 @@ export default async function Home() {
           </section>
         </BgImageContainer>
 
-        <section id="countdown" >
+        <section id="countdown">
           <Wrapper className="">
-            <div className="flex flex-col items-center justify-center px-4 py-5 ">
+            <div className="flex flex-col items-center justify-center px-4 py-5">
               <p className="text-[22px] text-[#FFD700] lg:text-3xl">
                 {"Pasangan"}
               </p>
@@ -83,42 +83,37 @@ export default async function Home() {
                 className="text-center text-[18px] text-white lg:text-xl"
                 style={{ whiteSpace: "pre-line" }}
               >
-                {"Dengan segala puji bagi Allah yang telah menciptakan makhluk-Nya berpasang-pasangan, Ya Allah izinkanlah kami merangkaikan cinta yang Engkau berikan dalam ikatan pernikahan."}
+                {
+                  "Dengan segala puji bagi Allah yang telah menciptakan makhluk-Nya berpasang-pasangan, Ya Allah izinkanlah kami merangkaikan cinta yang Engkau berikan dalam ikatan pernikahan."
+                }
               </p>
-          
             </div>
-
-       
-            
           </Wrapper>
-          
         </section>
 
         <section id="placeandtime">
-          <div className="flex w-full flex-col items-center justify-center bg-[#FFD700] bg-cover bg-center px-4 py-20 h-[200px] md:px-8 lg:px-10">
-            <p className="w-full text-center text-lg md:text-[20px] text-black ">
+          <div className="flex h-[200px] w-full flex-col items-center justify-center bg-[#FFD700] bg-cover bg-center px-4 py-20 md:px-8 lg:px-10">
+            <p className="w-full text-center text-lg text-black md:text-[20px]">
               Detail
             </p>
-            <h1 className="w-full text-center font-semibold text-black text-[42px] md:text-[72px]  h-auto">
+            <h1 className="h-auto w-full text-center text-[42px] font-semibold text-black md:text-[72px]">
               Waktu & Tempat
             </h1>
           </div>
-        
         </section>
 
-        <section id="placeandtimedetail" >
+        <section id="placeandtimedetail">
           <Wrapper className="">
-            <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 ">
+            <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
               <p className="text-base text-[#FFD700] lg:text-3xl">
                 {"Simpan Tanggalnya"}
               </p>
-          
-              <p className="text-white text-[#FFD700] lg:text-5xl ">
+
+              <p className="text-[#FFD700] lg:text-5xl">
                 {"Jumat, 20 Desember 2024"}
               </p>
             </div>
             <div className="flex items-center justify-center">
-              
               <CountDown targetDate={home.countdown.targetDate} />
             </div>
 
@@ -134,7 +129,6 @@ export default async function Home() {
                 description={home.coupleInfo[1]!.description}
               />
             </div>
-
 
             <EventDetails />
 
@@ -156,7 +150,7 @@ export default async function Home() {
           <TimelineView />
         </section>
         <section id="message">
-          <Wrapper >
+          <Wrapper>
             <MessagesList />
           </Wrapper>
           <div className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5 md:text-center">

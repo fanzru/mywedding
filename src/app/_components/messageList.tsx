@@ -28,6 +28,19 @@ export function MessagesList() {
   const firstRow = data.data.slice(0, data.data.length / 2);
   const secondRow = data.data.slice(data.data.length / 2);
 
+  const images = [
+    { img: "https://avatar.vercel.sh/jack" },
+    { img: "https://avatar.vercel.sh/jill" },
+    { img: "https://avatar.vercel.sh/john" },
+    { img: "https://avatar.vercel.sh/jane" },
+    { img: "https://avatar.vercel.sh/jenny" },
+    { img: "https://avatar.vercel.sh/james" },
+  ];
+
+  const getRandomImage = (): string => {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex]!.img;
+  };
   return (
     <div className="flex max-h-[620px] w-full flex-col items-center gap-4 overflow-hidden">
       <p className="mb-2 w-full text-center text-2xl text-white lg:text-6xl">
@@ -40,6 +53,7 @@ export function MessagesList() {
               key={index}
               title={message.name}
               description={message.message}
+              image={getRandomImage()}
             />
           ))}
         </Marquee>
@@ -49,6 +63,7 @@ export function MessagesList() {
               key={index}
               title={message.name}
               description={message.message}
+              image={getRandomImage()}
             />
           ))}
         </Marquee>
