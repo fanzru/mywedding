@@ -8,9 +8,9 @@ export default function ThankYouQRCode({ link }: ThankYouQRCodeProps) {
   if (!link) {
     return (
       <div className="flex flex-col items-center justify-center py-10 text-white">
-        <h2 className="mb-4 text-2xl font-bold">Thank You!</h2>
+        <h2 className="mb-4 text-2xl font-bold">Terima Kasih!</h2>
         <p className="text-center text-lg">
-          Unfortunately, no link was provided. Please try again later.
+          Sayangnya, tidak ada tautan yang diberikan. Silakan coba lagi nanti.
         </p>
       </div>
     );
@@ -18,10 +18,10 @@ export default function ThankYouQRCode({ link }: ThankYouQRCodeProps) {
 
   return (
     <div className="flex flex-col items-center justify-center py-10 text-white">
-      <h2 className="mb-4 text-2xl font-bold">Thank You!</h2>
+      <h2 className="mb-4 text-2xl font-bold">Terima Kasih!</h2>
       <p className="mb-4 text-center text-lg">
-        We are truly grateful for your presence and support. Here's the link to
-        our wedding location for your convenience.
+        Kami sangat berterima kasih atas kehadiran dan dukungan Anda. Berikut
+        tautan ke lokasi pernikahan kami untuk kenyamanan Anda.
       </p>
       {/* QR Code Section */}
       <div className="rounded bg-white p-4 shadow-lg">

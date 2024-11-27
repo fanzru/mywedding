@@ -3,6 +3,7 @@
 import { api } from "~/trpc/react";
 import { MessageCard } from "./messageCard";
 import Marquee from "~/components/ui/marquee";
+import { home } from "~/data/home";
 
 interface Message {
   name: string;
@@ -44,7 +45,7 @@ export function MessagesList() {
   return (
     <div className="flex max-h-[620px] w-full flex-col items-center gap-4 overflow-hidden">
       <p className="mb-2 w-full text-center text-2xl text-white lg:text-6xl">
-        Messages of Love and Blessings
+        {home.messageTitle}
       </p>
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg md:max-w-[900px]">
         <Marquee pauseOnHover className="[--duration:20s]">
