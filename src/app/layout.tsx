@@ -1,41 +1,39 @@
 import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { TRPCReactProvider } from "~/trpc/react";
-import { DefaultSeo } from "next-seo";
+import Head from "next/head";
+import { type Metadata } from "next";
 
-const metaImageUrl = "/images/meta/img.webp"; // URL meta image
+export const metadata: Metadata = {
+  title: "Affan & Amelia | Wedding Invitation",
+  description: "Celebrate our special day with us!",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
+};
+
+const metaImageUrl = "https://affanamelia.com/images/meta/img.webp"; // Path ke meta image
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={GeistSans.variable || ""}>
-      {/* Default SEO Configuration */}
-      <DefaultSeo
-        title="Affan & Amelia | Wedding Invitation"
-        description="Celebrate our special day with us!"
-        canonical="https://affanamelia.com"
-        openGraph={{
-          type: "website",
-          locale: "en_US",
-          url: "https://affanamelia.com",
-          title: "Affan & Amelia | Wedding Invitation",
-          description: "Celebrate our special day with us!",
-          images: [
-            {
-              url: metaImageUrl,
-              width: 1200,
-              height: 630,
-              alt: "Affan & Amelia Wedding Invitation",
-            },
-          ],
-        }}
-        twitter={{
-          handle: "@your_twitter_handle",
-          site: "@your_twitter_handle",
-          cardType: "summary_large_image",
-        }}
-      />
+      <Head>
+        <title>{"Affan & Amelia | Wedding Invitation"}</title>
+        <meta name="description" content={metadata.description || "Default Description"} />
+        {/* Open Graph metadata */}
+        <meta property="og:title" content="Affan & Amelia | Wedding Invitation" />
+        <meta property="og:description" content={metadata.description || "Default Description"} />
+        <meta property="og:image" content={metaImageUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://affanamelia.com" /> {/* Ganti dengan URL Anda */}
+        {/* Favicon */}
+        <link rel="icon" href={ "/favicon.ico"} />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Affan & Amelia | Wedding Invitation" />
+        <meta name="twitter:description" content={metadata.description || "Default Description"} />
+        <meta name="twitter:image" content={metaImageUrl} />
+      </Head>
       <body className="bg-[#191919]">
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
