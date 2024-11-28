@@ -9,13 +9,12 @@ export const metadata: Metadata = {
   description: "Celebrate our special day with us!",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   openGraph: {
-    title: "Affan & Amelia | Wedding Invitation",
-    description: "Celebrate our special day with us!",
-    images: [{ url: "https://affanamelia.com/meta.jpeg" }],
+    title: "Affan & Amelia | Undangan Pernikahan",
+    description: "Dengan penuh rasa syukur atas rahmat Allah SWT, kami mengundang kehadiran dan doa restu Bapak/Ibu/Saudara/i dalam acara pernikahan kami 🎉",
+    images: [{ url: "https://affanamelia.com/meta.jpg" }],
   },
 };
 
-const metaImageUrl = "/meta.jpeg"; // Path ke meta image
 
 export default function RootLayout({
   children,

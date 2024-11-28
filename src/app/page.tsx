@@ -123,7 +123,7 @@ export default async function Home() {
                 </a>
               </p>
 
-              <p className="text-[32px] text-white font-semibold lg:text-[48px]">
+              <p className="text-[28px] text-white text-center font-semibold lg:text-[48px]">
                 {"Jumat, 20 Desember 2024"}
               </p>
             </div>

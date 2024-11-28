@@ -2,8 +2,6 @@
 
 import { FormEvent, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import axios from "axios";
-import { env } from "~/env";
 import { z } from "zod";
 import { api } from "~/trpc/react";
 import { home } from "~/data/home";
@@ -25,6 +23,7 @@ export function Reservation() {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [formError, setFormError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleCaptchaChange = (token: string | null) => {
     setCaptchaToken(token);
@@ -33,16 +32,21 @@ export function Reservation() {
   const createRsvp = api.mywedding.submitRsvp.useMutation({
     onSuccess: () => {
       setLoading(false);
+      setSuccessMessage("Pesan terkirim! Terima kasih atas RSVP Anda.");
+      setFormError(null);
     },
     onError: (error) => {
       setLoading(false);
-      console.log(`Error: ${error.message}`);
+      setFormError("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+      setSuccessMessage(null);
+      console.error(`Error: ${error.message}`);
     },
   });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormError(null);
+    setSuccessMessage(null);
 
     const formData = new FormData(e.currentTarget);
     const formValues = {
@@ -57,16 +61,17 @@ export function Reservation() {
     const parsed = reservationSchema.safeParse(formValues);
 
     if (!parsed.success) {
-      setFormError("Please fill in all required fields correctly.");
+      setFormError("Harap isi semua bidang dengan benar.");
       console.log(parsed.error.format());
       return;
     }
 
     setLoading(true);
-
-    console.log(formValues);
-
     createRsvp.mutate(formValues);
+
+    // Reset form setelah sukses
+    e.currentTarget.reset();
+    setCaptchaToken(null); // Reset captcha
   };
 
   return (
@@ -80,6 +85,9 @@ export function Reservation() {
 
       {formError && (
         <div className="mb-4 text-center text-red-500">{formError}</div>
+      )}
+      {successMessage && (
+        <div className="mb-4 text-center text-green-500">{successMessage}</div>
       )}
 
       <form
@@ -132,10 +140,17 @@ export function Reservation() {
             type="tel"
             id="whatsapp_number"
             name="whatsapp_number"
+            pattern="\d*" // Hanya menerima angka
             className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-[#C6754D] focus:outline-none focus:ring-[#C6754D]"
             required
+            onKeyPress={(e) => {
+              if (!/[0-9]/.test(e.key)) {
+                e.preventDefault(); // Mencegah input selain angka
+              }
+            }}
           />
         </div>
+
 
         <div className="w-full">
           <span className="block text-sm font-medium text-white">
@@ -191,10 +206,7 @@ export function Reservation() {
         </button>
         <div className="flex w-full items-center justify-center">
           <ReCAPTCHA
-            sitekey={
-              env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
-              "6Lcx2YEqAAAAAI2VwtW_M4rVamKdhzV96MB2nFiD"
-            }
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
             onChange={handleCaptchaChange}
           />
         </div>
