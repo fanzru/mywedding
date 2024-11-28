@@ -12,14 +12,11 @@ const reservationSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address"),
   whatsapp_number: z.string().min(1, "WhatsApp number is required"),
-  attendance: z.enum(
-    ["terima_dengan_senang_hati", "dengan_berat_hati_menolak"],
-    {
-      errorMap: () => ({
-        message: "Please select an attendance option correctly",
-      }),
-    },
-  ),
+  attendance: z.enum(["accept_with_pleasure", "regretfully_decline"], {
+    errorMap: () => ({
+      message: "Please select an attendance option correctly",
+    }),
+  }),
   message: z.string().min(1, "Message is required"),
   captcha: z.string().min(1, "reCAPTCHA is required"),
 });
@@ -35,11 +32,11 @@ export function Reservation() {
 
   const createRsvp = api.mywedding.submitRsvp.useMutation({
     onSuccess: () => {
-      alert("success");
       setLoading(false);
     },
     onError: (error) => {
-      alert(`Error: ${error.message}`);
+      setLoading(false);
+      console.log(`Error: ${error.message}`);
     },
   });
 
@@ -150,7 +147,7 @@ export function Reservation() {
               <input
                 type="radio"
                 name="attendance"
-                value="terima_dengan_senang_hati"
+                value="accept_with_pleasure"
                 className="form-radio h-5 min-h-5 w-5 min-w-5 appearance-none rounded-sm border-2 border-white bg-white checked:bg-[#C6754D] focus:ring-[#C6754D]"
                 required
               />
@@ -160,7 +157,7 @@ export function Reservation() {
               <input
                 type="radio"
                 name="attendance"
-                value="dengan_berat_hati_menolak"
+                value="regretfully_decline"
                 className="form-radio h-5 min-h-5 w-5 min-w-5 appearance-none rounded-sm border-2 border-white bg-white checked:bg-[#C6754D] focus:ring-[#C6754D]"
               />
               <span className="ml-2">Dengan hormat, tidak dapat hadir</span>
