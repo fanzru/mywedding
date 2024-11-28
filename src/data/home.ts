@@ -6,23 +6,23 @@ export const home = {
     targetDate: "2024-12-20T10:00:00",
   },
   qoutes: {
-    text: "Cinta terdiri dari satu jiwa \nyang mendiami dua tubuh.",
-    source: "Aristotle",
+    text: "“Dan diantara ayat-ayat-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu merasa nyaman kepadanya, dan dijadikan-Nya di antaramu mawadah dan rahmah. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.”",
+    source: "Q.S. Ar-Rum: 21",
   },
   timeline: {
-    header: "Sebuah Perjalanan Cinta",
+    header: "Ini adalah",
     subheader: "Cerita Kami",
   },
   coupleInfo: [
     {
       image: "/images/profile-affan.jpg",
       name: "Ananda Affan Fattahila",
-      description: "Putra dari Bapak Andy Cluish dan Ibu Ratnaningsih",
+      description: "Putra Pertama dari Bapak Andy Cluish dan Ibu Ratnaningsih",
     },
     {
       image: "/images/profile-amel.jpg",
       name: "Amelia Rifka Yunita",
-      description: "Putri dari Bapak Kasidi dan Ibu Umu Nurkhasanah",
+      description: "Putri Ketiga dari Bapak Kasidi dan Ibu Umu Nurkhasanah",
     },
   ],
   sendGift: [

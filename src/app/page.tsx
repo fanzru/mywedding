@@ -37,13 +37,13 @@ export default async function Home() {
             id="home"
           >
             <div className="flex flex-col items-center gap-4 text-[#FFD700]">
-              <p className="text-sm text-white md:text-[28px]">
-                Anda Diundang untuk Merayakan Pernikahan dari
+              <p className="text-[18px] text-white md:text-[28px]">
+                Undangan Pernikahan
               </p>
-              <p className={"text-center text-[48px]"}>
+              <p className={"text-center text-[48px] lg:text-[56px] font-semibold"}>
                 Affan <br /> & <br /> Amelia
               </p>
-              <p className="text-sm text-white">{home.locationAndDate}</p>
+              <p className="text-[18px] text-white">{home.locationAndDate}</p>
               <a href="#countdown">
                 <button className="flex gap-2 rounded-full bg-[#FFD700] p-3 text-black">
                   <p className="text-sm">Buka Undangan</p>
@@ -71,39 +71,59 @@ export default async function Home() {
         </BgImageContainer>
 
         <section id="countdown">
-          <Wrapper className="">
+          <Wrapper >
             <div className="flex flex-col items-center justify-center px-4 py-5">
-              <p className="text-[22px] text-[#FFD700] lg:text-3xl">
+              <p className="text-[18px] font-semibold text-[#FFD700] lg:text-[24px]">
                 {"Pasangan"}
               </p>
-              <p className="text-[42px] text-[#FFD700] lg:text-3xl">
+              <p className="text-[24px] font-semibold text-[#FFD700] lg:text-[32px]">
                 {"Mempelai"}
               </p>
               <p
-                className="text-center text-[18px] text-white lg:text-xl"
+                className="text-center text-[16px] text-white lg:text-[18px]"
                 style={{ whiteSpace: "pre-line" }}
               >
                 {
                   "Dengan segala puji bagi Allah yang telah menciptakan makhluk-Nya berpasang-pasangan, Ya Allah izinkanlah kami merangkaikan cinta yang Engkau berikan dalam ikatan pernikahan."
                 }
               </p>
+               
             </div>
+            <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
+                  <CoupleInfoCard
+                    image={home.coupleInfo[0]!.image}
+                    name={home.coupleInfo[0]!.name}
+                    description={home.coupleInfo[0]!.description}
+                  />
+                  <CoupleInfoCard
+                    image={home.coupleInfo[1]!.image}
+                    name={home.coupleInfo[1]!.name}
+                    description={home.coupleInfo[1]!.description}
+                  />
+              </div>
           </Wrapper>
-          <div className="flex h-[200px] w-full flex-col items-center justify-center bg-[#FFD700] bg-cover bg-center px-4 py-20 md:px-8 lg:px-10">
-            <p className="w-full text-center text-lg text-black md:text-[20px]">
+          <div className="flex h-[150px] w-full flex-col items-center justify-center bg-[#FFD700] bg-cover bg-center px-4 py-20 md:px-8 lg:px-10">
+            <p className="w-full text-center text-lg text-black lg:text-[24px]">
               Detail
             </p>
-            <h1 className="h-auto w-full text-center text-[42px] font-semibold text-black md:text-[72px]">
+            <h1 className="h-auto w-full text-center text-[42px] font-semibold text-black lg:text-[64px]">
               Waktu & Tempat
             </h1>
           </div>
           <Wrapper className="">
             <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
-              <p className="text-base text-[#FFD700] lg:text-3xl">
-                {"Simpan Tanggalnya"}
+              <p className="text-[18px] font-semibold text-[#FFD700] lg:text-[32px]">
+                <a
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=[Affan%20%26%20Amelia]%20Wedding%20Invitation&dates=20241220T010000Z/20241220T090000Z&details=Affan%20%26%20Amelia's%20Wedding%20Celebration&location=Your%20Event%20Location"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-[#FFA500]"
+                >
+                  Simpan Tanggalnya
+                </a>
               </p>
 
-              <p className="text-[#FFD700] lg:text-5xl">
+              <p className="text-[32px] text-white font-semibold lg:text-[48px]">
                 {"Jumat, 20 Desember 2024"}
               </p>
             </div>
@@ -111,29 +131,16 @@ export default async function Home() {
               <CountDown targetDate={home.countdown.targetDate} />
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-3 px-4 py-5 md:flex-row">
-              <CoupleInfoCard
-                image={home.coupleInfo[0]!.image}
-                name={home.coupleInfo[0]!.name}
-                description={home.coupleInfo[0]!.description}
-              />
-              <CoupleInfoCard
-                image={home.coupleInfo[1]!.image}
-                name={home.coupleInfo[1]!.name}
-                description={home.coupleInfo[1]!.description}
-              />
-            </div>
-
             <EventDetails />
 
             <div className="flex flex-col items-center justify-center gap-3 px-4 py-5">
               <p
-                className="text-center text-xl text-white lg:text-5xl"
+                className="text-center text-[16px] text-white lg:text-[24px]"
                 style={{ whiteSpace: "pre-line" }}
               >
                 {home.qoutes.text}
               </p>
-              <p className="text-base text-[#FFD700] lg:text-2xl">
+              <p className="text-[16px] text-[#FFD700] lg:text-[24px]">
                 {home.qoutes.source}
               </p>
             </div>

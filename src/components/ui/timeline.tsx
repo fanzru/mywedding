@@ -5,7 +5,7 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
-import React, { Children, useEffect, useRef, useState } from "react";
+import React, { Children, RefObject, use, useEffect, useRef, useState } from "react";
 import { timelineSetting } from "~/data/timeline";
 import { cn } from "~/lib/utils";
 
@@ -25,12 +25,30 @@ export const Timeline = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
+  const handleChangeOrientation = (el: RefObject<HTMLDivElement>| null) => {
+    if (!el || !el.current) return;
+    
+    const rect = el.current.getBoundingClientRect();
+    setHeight(rect.height);
+  }
+
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
+    if (window && ref.current && document) {
+      screen.orientation.addEventListener('change', () => handleChangeOrientation(ref));
     }
-  }, [ref]);
+  }
+    , [ref]);
+
+  useEffect(() => {
+    if (window) {
+      const el = document.getElementById('timeline-container');
+
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        setHeight(rect.height);
+      }
+    }
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -44,7 +62,7 @@ export const Timeline = ({
     <div className="w-full font-sans dark:bg-neutral-950" ref={containerRef}>
       {children}
 
-      <div ref={ref} className="relative mx-auto max-w-screen-xl pb-20">
+      <div ref={ref} className="relative mx-auto max-w-screen-xl pb-20" id="timeline-container">
         {data.map((item, index) => (
           <div
             key={index}
@@ -79,7 +97,7 @@ export const Timeline = ({
         ))}
         <div
           style={{
-            height: height + "px",
+            height,
           }}
           className={cn(
             "absolute left-8 top-0 w-[2px] overflow-hidden bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] dark:via-neutral-700 md:left-8",
