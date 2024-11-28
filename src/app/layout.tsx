@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const metaImageUrl = "https://affanamelia.com/images/meta/img.webp"; // Path ke meta image
+const metaImageUrl = "/meta.jpeg"; // Path ke meta image
 
 export default function RootLayout({
   children,
