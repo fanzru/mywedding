@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Affan & Amelia | Wedding Invitation",
     description: "Celebrate our special day with us!",
-    images: [{ url: "/meta.jpeg" }],
+    images: [{ url: "https://affanamelia.com/meta.jpeg" }],
   },
 };
 
