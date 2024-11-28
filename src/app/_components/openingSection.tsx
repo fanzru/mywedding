@@ -24,6 +24,10 @@ export function OpeningSection({ setIsMute }: { setIsMute: Function }) {
     };
   }, [isHidden]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll ke posisi paling atas
+  }, []);
+
   return (
     <div
       className={`fixed z-[100] transition-opacity duration-300 ${
