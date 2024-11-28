@@ -42,7 +42,7 @@ export const home = {
       name: "A.N. Amelia Rifka Yunita",
     },
   ],
-  messageTitle: "Pesan Cinta dan Berkah",
+  messageTitle: "Pesan Untuk Kita",
   rsvpSubTitle:
     "Kami sangat senang untuk merayakan bersama Anda! Mohon beri tahu kami jika Anda akan bergabung.",
 };
