@@ -153,7 +153,8 @@ export default async function Home() {
           <Wrapper>
             <MessagesList />
           </Wrapper>
-          <div className="mx-auto flex max-w-[700px] flex-col gap-3 px-4 py-5 md:text-center">
+        
+          <div className="mx-auto flex max-w-[840px] flex-col gap-3 px-4 py-5 md:text-center">
             <p className="w-full text-center text-2xl text-white md:text-4xl">
               Send Gifts
             </p>

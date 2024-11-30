@@ -42,14 +42,7 @@ export default function ThankYouQRCode({ link }: ThankYouQRCodeProps) {
         </a>
       </div>
       {/* Button to Open Google Maps */}
-      <button
-        onClick={() =>
-          window.open("https://forms.gle/jZCbjkcxNkkJyHyp9", "_blank")
-        }
-        className="rounded-md bg-[#FFD700] px-4 py-2 text-black shadow hover:bg-[#ffd900e0] focus:outline-none focus:ring-2 focus:ring-[#C6754D]"
-      >
-        Konfirmasi Hadiah
-      </button>
+  
     </div>
   );
 }

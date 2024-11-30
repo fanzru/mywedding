@@ -31,7 +31,8 @@ export function MessageCard({
         style={{ backgroundColor: "#FFD700" }}
         className="h-[40px] w-[40px] rounded-full"
       ></div>
-      <div className="flex flex-col gap-1">
+
+      <div className="flex flex-col gap-1 max-w-[250px]">
         <div>
           <p className="text-base font-semibold text-[#191919]">
             {title || "Anonymous"}

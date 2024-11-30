@@ -83,13 +83,6 @@ export function Reservation() {
         </p>
       </div>
 
-      {formError && (
-        <div className="mb-4 text-center text-red-500">{formError}</div>
-      )}
-      {successMessage && (
-        <div className="mb-4 text-center text-green-500">{successMessage}</div>
-      )}
-
       <form
         onSubmit={handleSubmit}
         className="mx-auto w-full space-y-4 lg:w-[800px]"
@@ -196,6 +189,15 @@ export function Reservation() {
             required
           />
         </div>
+
+        {formError && (
+        <div className="mb-4 text-center text-red-500">{formError}</div>
+        )}
+        
+        {successMessage && (
+          <div className="mb-4 text-center text-green-500">{successMessage}</div>
+        )}
+
 
         <button
           type="submit"

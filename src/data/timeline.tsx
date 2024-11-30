@@ -13,7 +13,7 @@ export const timeline = [
     content: (
       <div>
         <p className="mb-8  text-white dark:text-neutral-200 text-[14px] lg:text-[18px] h-auto">
-          Bertemu saat SMA, dua kepribadian berbeda bersatu melalui percakapan ringan yang perlahan menciptakan rasa penasaran dan keakraban.
+          Awal pertama kali kami bertemu pada tahun 2016 di kelas IPA 4 - SMA Negeri 1 Gombong, dan pada saat itu kami mulai berkenalan satu sama lain dan memulai perjalanan masa SMA.
         </p>
         <div className="relative">
           <Image
@@ -32,7 +32,7 @@ export const timeline = [
     content: (
       <div>
         <p className="mb-8  font-normal text-white dark:text-neutral-200 text-[14px] lg:text-[18px] h-auto">
-          Melewati suka duka, menghadapi tantangan jarak, hingga akhirnya hubungan dewasa terbentuk dengan keyakinan memilih bersama selamanya.
+          Mulai dari membantu mengerjakan tugas, saling mengingatkan, mengajarkan pendidikan, hingga akhirnya menjalin hubungan pertemanan yang erat.
         </p>
         <div className="relative">
           <Image
@@ -51,7 +51,7 @@ export const timeline = [
     content: (
       <div>
         <p className="mb-8 font-normal text-white dark:text-neutral-200 text-[14px] lg:text-[18px] h-auto">
-          Dalam suasana hangat penuh cinta, kalian mengikat janji, simbol komitmen dan restu keluarga untuk melangkah ke masa depan.
+          Pada bulan Oktober 2024, kami melangkah lebih jauh untuk bertunangan dan disaksikan oleh kedua orang tua, kemudian bersepakat untuk merencanakan pernikahan di akhir tahun 2024.
         </p>
 
         <div className="relative">
@@ -71,7 +71,7 @@ export const timeline = [
     content: (
       <div>
         <p className="mb-8 font-normal text-white dark:text-neutral-200 text-[14px] lg:text-[18px] h-auto">
-        Hari bahagia penuh kebahagiaan, di mana janji suci terucap, merayakan cinta dan awal hidup bersama yang abadi.
+          Dengan penuh rasa syukur, kami ingin berbagi momen istimewa ini, kami memutuskan untuk mengikat janji suci pernikahan pada tanggal 20 Desember 2024.
         </p>
         <div className="relative">
           <Image
