@@ -13,7 +13,7 @@ export const timeline = [
     content: (
       <div>
         <p className="mb-8  text-white dark:text-neutral-200 text-[14px] lg:text-[18px] h-auto">
-          Awal pertama kali kami bertemu pada tahun 2016 di kelas IPA 4 - SMA Negeri 1 Gombong, dan pada saat itu kami mulai berkenalan satu sama lain dan memulai perjalanan masa SMA.
+          Awal pertama kali kami bertemu pada tahun 2016 di kelas iPA 4 - SMA Negeri 1 Gombong, kemudian mulai mengenal lebih dekat di tahun 2017.
         </p>
         <div className="relative">
           <Image
