@@ -32,7 +32,7 @@ export const timeline = [
     content: (
       <div>
         <p className="mb-8  font-normal text-white dark:text-neutral-200 text-[14px] lg:text-[18px] h-auto">
-          Mulai dari membantu mengerjakan tugas, saling mengingatkan, mengajarkan pendidikan, hingga akhirnya menjalin hubungan pertemanan yang erat.
+          Seiring berjalannya waktu, kami semakin dekat dan mulai menjalin komitmen bersama. Pada tahun 2019, Qadarullah kami diterima di universitas dan program studi yang kami pilih, serta berhasil menyelesaikan studi bersama di tahun 2023.
         </p>
         <div className="relative">
           <Image
