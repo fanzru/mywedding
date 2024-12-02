@@ -10,18 +10,21 @@ export function BgImageContainer({
     <div className="relative min-h-screen bg-black">
       {/* Wrapper untuk memastikan filter diterapkan */}
       <div className="absolute inset-0">
-        <Image
-          src="/images/pre2.webp"
-          alt="Background"
-          fill
-          quality={100}
-          className={cn(
-            "h-full w-full object-cover opacity-70 grayscale filter",
-            className,
-          )}
-          priority
-          sizes="(max-width: 100%) 100vw, (max-width: 100%px) 50vw, 33vw"
-        />
+        <picture>
+          <source srcSet="/images/pre2.webp" type="image/webp" />
+          <Image
+            src="/images/pre2.jpeg"
+            alt="Background"
+            fill
+            quality={100}
+            className={cn(
+              "h-full w-full object-cover opacity-70 grayscale filter",
+              className,
+            )}
+            priority
+            sizes="(max-width: 100%) 100vw, (max-width: 100%px) 50vw, 33vw"
+              />
+        </picture>
       </div>
 
       {/* Konten di atas gambar */}

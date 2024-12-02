@@ -53,7 +53,6 @@ export const timeline = [
         <p className="mb-8 font-normal text-white dark:text-neutral-200 text-[14px] lg:text-[18px] h-auto">
           Pada bulan Oktober 2024, kami melangkah lebih jauh untuk bertunangan dan disaksikan oleh kedua orang tua, kemudian bersepakat untuk merencanakan pernikahan di akhir tahun 2024.
         </p>
-
         <div className="relative">
           <Image
                src="/images/story/3.webp"
