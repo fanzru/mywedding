@@ -35,7 +35,7 @@ export function OpeningSection({ setIsMute }: { setIsMute: Function }) {
       }`}
     >
       <BgImageContainer className="opacity-50">
-        <Suspense fallback={<div className="loading">Loading...</div>}>
+        <Suspense fallback={<></>}>
           <Content handleButtonClick={handleButtonClick} />
         </Suspense>
       </BgImageContainer>
