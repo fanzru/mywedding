@@ -48,7 +48,7 @@ export function MessagesList() {
         {home.messageTitle}
       </p>
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden md:max-w-screen-xl">
-        <Marquee pauseOnHover className="[--duration:20s]">
+        <Marquee pauseOnHover className="[--duration:110s]">
           {firstRow.map((message: Message, index: number) => (
             <MessageCard
               key={index}
@@ -58,7 +58,7 @@ export function MessagesList() {
             />
           ))}
         </Marquee>
-        <Marquee reverse pauseOnHover className="[--duration:20s]">
+        <Marquee  reverse pauseOnHover className="[--duration:110s]">
           {secondRow.map((message: Message, index: number) => (
             <MessageCard
               key={index}
